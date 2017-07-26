@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/API/bin/Debug/netcoreapp1.1
+/API/obj
+/API/obj
+/API/obj/Debug/netcoreapp1.1
+/DataAccessLayer/bin/Debug/netcoreapp1.1
+/API/obj
+/API/obj/Debug/netcoreapp1.1
+/DataAccessLayer/obj
+/DataAccessLayer/obj/Debug/netcoreapp1.1
