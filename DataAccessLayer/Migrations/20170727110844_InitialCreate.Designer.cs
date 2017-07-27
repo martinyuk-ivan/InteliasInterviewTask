@@ -8,7 +8,7 @@ using DataAccessLayer;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20170726160954_InitialCreate")]
+    [Migration("20170727110844_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

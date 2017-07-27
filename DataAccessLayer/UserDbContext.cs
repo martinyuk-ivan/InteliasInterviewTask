@@ -8,24 +8,19 @@ namespace DataAccessLayer
 {
     public class UserDbContext:DbContext
     {
-        string connectionStringName;
-        public UserDbContext(string connectionString)
-        {
-            connectionStringName = connectionString;
-        }
+      
+        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
+        { }
         public UserDbContext() : base()
         {
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           // optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=InteliasTest;Trusted_Connection=True;");
+          
             base.OnConfiguring(optionsBuilder);
         }
-        public UserDbContext(DbContextOptions options) : base(options)
-        {
-           
-        }
+      
         public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {

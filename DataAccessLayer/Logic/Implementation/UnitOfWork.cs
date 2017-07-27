@@ -7,22 +7,22 @@ namespace DataAccessLayer.Logic.Implementation
 {
     public class UnitOfWork : IUnitOfWork
     {
-        Func<UserDbContext, IRepositoryBase<User, int>> userRepositoryInstantiator;
+      //  Func<UserDbContext, IRepositoryBase<User, int>> userRepositoryInstantiator;
         IRepositoryBase<User, int> userRepository;
         UserDbContext context;
-        public UnitOfWork(UserDbContext dbContext,Func<UserDbContext, IRepositoryBase<User,int>> userRepositoryInstantiator)
+        public UnitOfWork(UserDbContext dbContext,IRepositoryBase<User,int> userRepository)
         {
             context = dbContext;
-            this.userRepositoryInstantiator = userRepositoryInstantiator;
+            this.userRepository = userRepository;
         }
         public IRepositoryBase<User, int> UserRepository
         {
             get
             {
-                if (userRepository==null)
-                {
-                    userRepository = userRepositoryInstantiator(context);
-                }
+              //  if (userRepository==null)
+              //  {
+              ////      userRepository = userRepositoryInstantiator(context);
+              //  }
                 return userRepository;
             } }
     }
