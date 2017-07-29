@@ -14,7 +14,7 @@ namespace DataAccessLayer.Logic.Implementation
 
         public override async Task<PageModel<User>> FilterByPredicateAsync(string propName, int pageSize = 10, int pageIndex = 1)
         {
-            var filterQuery = dbContext.Users.OrderBy(x=>x.GetType().GetProperty(propName));
+            var filterQuery = dbContext.Users.OrderBy(x=>typeof(User).GetProperty(propName).GetValue(x));
             var usersPage = await pagingManager.CreateAsync(filterQuery, pageSize, pageIndex);
             return usersPage;
 

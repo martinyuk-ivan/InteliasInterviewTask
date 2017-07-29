@@ -1,0 +1,37 @@
+<div class="panel">
+
+<form (ngSubmit)="search()" ng-controller="mycontroller">
+  <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="search" required/>
+</form>
+<table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><a   (click)="sortBy('FirstName')" href="#">FirstName</a></th>
+                    <th><a   (click)="sortBy('LastName')" href="#">LastName</a></th>
+                    <th><a   (click)="sortBy('Title')" href="#">Title</a></th>
+                    <th><a   (click)="sortBy('SoldCount')" href="#">SoldCount</a></th>
+                    <th><a   (click)="sortBy('Refer')" href="#">Refer</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersPage.results">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.title}}</td>
+                     <td>{{user.soldCount}}</td>
+                      <td>{{user.refer}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="paging">
+             <ul class="pagination" >
+                                   <li [ngClass]="{'disabled': (usersPage.currentPage == 1 || usersPage.totalNumberPages == 1)}" ><a   (click)="firstPage()" href="#">First</a></li>
+                     <li *ngFor="let page of fakeArray(usersPage.totalNumberPages)"  [ngClass]="{'active': (usersPage.currentPage == page)}">
+                        <a (click)="setPage(page)" href="#" >{{page}}</a>
+                     </li>
+                  <li [ngClass]="{'disabled': (usersPage.currentPage == usersPage.totalNumberPages || usersPage.totalNumberPages == 0)}" ><a   (click)="lastPage()" href="#">Last</a></li>
+               </ul>
+        </div>
+       
+</div>
+    

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using DataAccessLayer.Logic;
 using DataAccessLayer.Model;
 using System.Reflection;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("MyPolicy")] 
     [Route("api/userController")]
     public class UserController : Controller
     {
