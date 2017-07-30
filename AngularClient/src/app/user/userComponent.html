@@ -1,7 +1,7 @@
 <div class="panel">
 
-<form (ngSubmit)="search()" ng-controller="mycontroller">
-  <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="search" required/>
+<form (ngSubmit)="search()" ngNativeValidate ng-controller="mycontroller">
+  <input type="text" [(ngModel)]="searchQuery" name="searchQuery" required minlength="1" maxlength="5" placeholder="search" />
 </form>
 <table class="table table-striped">
             <thead>

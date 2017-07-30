@@ -1,5 +1,5 @@
 import { Component,OnInit,NgModule } from '@angular/core';
-import {UserService} from './userService';
+import {UserService} from '../services/userService';
 import{User} from'./Models/userModel';
 import{Configuration} from'../config/Configurate';
 import{Page} from'./Models/pagesModel';
@@ -9,7 +9,6 @@ import 'rxjs/Rx';
 @Component({
   selector: 'app-users',
   templateUrl: './userComponent.html',
-  styleUrls: ['./userComponent.css'],
   providers: [UserService,Configuration]
 })
 export class userComponent implements OnInit { 
@@ -31,15 +30,15 @@ export class userComponent implements OnInit {
     refreshUsers()
     {
        if(this.pageType==PageTypes.Sample){
-        this.userService.getPageUsers(this.pageIndex).subscribe(us=>this.usersPage=us);
+        this.userService.getPageUsers(this.pageIndex).subscribe(us=>this.usersPage=us,error=>{alert(error);this.usersPage=new Page<User>()});
        }
       else if(this.pageType==PageTypes.Searchable)
         {
-             this.userService.getSearchedPageData(this.searchQuery,this.pageIndex).subscribe(us=>this.usersPage=us);
+             this.userService.getSearchedPageData(this.searchQuery,this.pageIndex).subscribe(us=>this.usersPage=us,error=>{alert(error);this.usersPage=new Page<User>()});
         }
      else if(this.pageType==PageTypes.Sortable)
         {
-            this.userService.getFilteredPageData(this.filterProperty,this.pageIndex).subscribe(us=>this.usersPage=us);
+            this.userService.getFilteredPageData(this.filterProperty,this.pageIndex).subscribe(us=>this.usersPage=us,error=>{alert(error);this.usersPage=new Page<User>()});
         }
 	}   
     fakeArray(size:number)

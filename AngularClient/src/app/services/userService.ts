@@ -12,17 +12,17 @@ export class UserService  {
      
     getPageUsers(pageIndex:number){
         return this.http.get(this.config.getUrlServer()+'/api/userController?pageSize='+this.config.pageSize+'&pageIndex='+pageIndex).map((response) => response.json())
-			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');;
+			.catch((error:any) => Observable.throw(error.text()) || 'Server Error');;
     }
     getFilteredPageData(propertyName:string,pageIndex:number)
     {
         return this.http.get(this.config.getUrlServer()+'/api/userController/filterBy?propertyName='+propertyName+'&pageSize='+this.config.pageSize+'&pageIndex='+pageIndex).map((response) => response.json())
-			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
+			.catch((error:any) => Observable.throw(error.text()) || 'Server Error');
     }
     getSearchedPageData(searchQuery:string,pageIndex:number)
     {
         return this.http.get(this.config.getUrlServer()+'/api/userController/search?searchString='+searchQuery+'&pageSize='+this.config.pageSize+'&pageIndex='+pageIndex).map((response) => response.json())
-			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
+			.catch((error:any) => Observable.throw(error.text()) || 'Server Error');
     }
      
 

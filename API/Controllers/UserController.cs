@@ -73,7 +73,7 @@ namespace API.Controllers
             var seachedPage = await unitOfWork.UserRepository.SearchAsync(searchString, pageSize, pageIndex);
             if (seachedPage.Results.Count() == 0)
             {
-                return NotFound("chek if pageSize and page index is valid");
+                return NotFound("chek if searchQuery is valid");
             }
             return Ok(seachedPage);
         }

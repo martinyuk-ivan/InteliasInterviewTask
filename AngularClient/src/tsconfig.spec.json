@@ -11,7 +11,9 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "app/tests/userService.spec.ts",
+    "app/tests/userComponet.spec.ts"
   ],
   "include": [
     "**/*.spec.ts",
